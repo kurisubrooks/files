@@ -1,0 +1,6 @@
+{
+    "esnext": true,
+    "asi": true,
+    "node": true,
+    "loopfunc": true
+}
