@@ -1,0 +1,251 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+}
+
+*:active,
+*:hover {
+    cursor: default;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+ol, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+table, thead, tbody, td, tr, th {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+}
+
+.window {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.window_frame {
+    display: flex;
+    justify-content: space-between;
+
+    background: #0778CB;
+    color: white;
+}
+
+.window_frame .window_title {
+    -webkit-app-region: drag;
+    flex: 1;
+}
+
+.window_frame .window_controls,
+.window_frame .window_title {
+    padding: 8px 16px;
+}
+
+.window_frame .window_controls span {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    top: 2px;
+}
+
+.window_frame .window_controls span:not(:first-child) {
+    margin-left: 12px;
+}
+
+.window_frame .window_controls img {
+    cursor: pointer;
+}
+
+.window_menubar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background: #0698EC;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.window_menubar .menubar_align_left {
+    margin-top: 7px;
+}
+
+.window_menubar .menubar_buttons li {
+    display: inline-block;
+    border-radius: 2px;
+    padding: 8px 8px 4px;
+    margin-left: 8px;
+    text-transform: uppercase;
+    font-size: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.window_menubar .menubar_buttons li.text {
+    padding: 8px 12px 6px;
+}
+
+.window_menubar .menubar_buttons li:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.window_menubar .menubar_buttons li:active {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.window_menubar .menubar_buttons img {
+    width: 17px;
+    cursor: pointer;
+}
+
+.window_content {
+    display: flex;
+    flex-direction: row;
+    color: #5A5A5A;
+    height: calc(100% - 92px);
+}
+
+.window_content .content_sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 15px;
+    width: 240px;
+    overflow-y: scroll;
+    background: rgb(250, 250, 250);
+    border-right: 1px solid rgb(210, 210, 210);
+}
+
+.window_content .content_sidebar::-webkit-scrollbar,
+.window_content .content_explorer::-webkit-scrollbar {
+    display: none;
+}
+
+.window_content .content_sidebar li {
+    max-width: 100%;
+}
+
+.window_content .content_sidebar li:not(.separator) {
+    cursor: pointer;
+    padding: 12px 18px;
+}
+
+.window_content .content_sidebar li:hover:not(.separator) {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.window_content .content_sidebar li.separator {
+    border-bottom: 1px solid rgb(210, 210, 210);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.window_content .content_sidebar .file_icon,
+.window_content .content_explorer .file_icon {
+    vertical-align: middle;
+    position: relative;
+    margin-right: 14px;
+    top: 1px;
+}
+
+.window_content .content_sidebar .file_icon img,
+.window_content .content_explorer .file_icon img {
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+}
+
+.window_content .content_explorer {
+    flex: 1;
+    overflow-y: scroll;
+    background: rgb(245, 245, 245);
+}
+
+.window_content .content_explorer table {
+    width: 100%;
+    font-size: 14px;
+    table-layout: fixed;
+}
+
+.window_content .content_explorer table thead {
+    background: rgb(250, 250, 250);
+}
+
+.window_content .content_explorer table thead tr td {
+    padding: 12px 16px;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+.window_content .content_explorer table thead tr td:not(:last-child) {
+    border-right: 1px solid rgb(210, 210, 210);
+}
+
+.window_content .content_explorer table tbody tr td {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.window_content .content_explorer table tbody tr td:first-child {
+    color: #000;
+}
+
+.window_content .content_explorer table tbody tr:hover td {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.window_content .content_explorer table tbody .invisible {
+    color: #999 !important;
+}
+
+/*.window .window_menubar {
+    background: #0698EC;
+}
+
+.window .window_menubar .menubar {
+    float: right;
+    padding: 10px 14px;
+}
+
+.window .window_menubar .menubar span {
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.05s;
+}
+
+.window .window_menubar .menubar span:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.window .window_content {
+    flex: 1;
+    flex-direction: row;
+    background: #F5F5F5;
+}
+
+.window .window_content .content_sidebar {
+    background: #FAFAFA;
+    border-right: 2px solid #D2D2D2;
+    width: 265px;
+}
+
+.window .window_content .content_explorer {
+    background: #F5F5F5;
+}
+*/

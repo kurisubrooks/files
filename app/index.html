@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+
+<div class="window">
+    <div class="window_frame">
+        <div class="window_title"></div>
+        <div class="window_controls">
+            <span id="window_minimize"><img src="res/min.png"></span>
+            <span id="window_maximize"><img src="res/max.png"></span>
+            <span id="window_close"><img src="res/close.png"></span>
+        </div>
+    </div>
+
+    <div class="window_menubar">
+        <div class="menubar_align_left">
+            <span>Home</span>
+        </div>
+
+        <div class="menubar_align_right menubar_buttons">
+            <ul>
+            <!--<li class="text">Open</li>-->
+                <li><img src="res/new.png"></li>
+            <!--<li><img src="res/search.png"></li>-->
+            <!--<li><img src="res/trash.png"></li>-->
+            <!--<li><img src="res/sort.png"></li>-->
+                <li><img src="res/menu.png"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="window_content">
+        <div class="content_sidebar">
+            <ul>
+                <li><span class="file_icon"><img src="res/google_drive.svg"></span>Google Drive</li>
+                <li><span class="file_icon"><img src="res/dropbox.svg"></span>Dropbox</li>
+                <li><span class="file_icon"><img src="res/download.svg"></span>Downloads</li>
+                <li><span class="file_icon"><img src="res/home.svg"></span>Home</li>
+            </ul>
+            <ul>
+                <li class="separator"></li>
+                <li><span class="file_icon"><img src="res/cloud.svg"></span>Network</li>
+                <li><span class="file_icon"><img src="res/disk.svg"></span>Computer</li>
+            </ul>
+        </div>
+
+        <div class="content_explorer">
+            <table id="files">
+                <thead>
+                    <tr>
+                        <td>Title</td>
+                        <td width="135px">Size</td>
+                        <td width="135px">Last Modified</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
