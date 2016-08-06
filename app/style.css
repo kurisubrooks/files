@@ -81,15 +81,18 @@ table, thead, tbody, td, tr, th {
     color: #FFFFFF;
 }
 
-.window_menubar .menubar_align_left {
-    margin-top: 7px;
+.window_menubar .menubar_align_left li {
+    margin-right: 8px;
+}
+
+.window_menubar .menubar_align_right li {
+    margin-left: 8px;
 }
 
 .window_menubar .menubar_buttons li {
     display: inline-block;
     border-radius: 2px;
     padding: 8px 8px 4px;
-    margin-left: 8px;
     text-transform: uppercase;
     font-size: 16px;
     vertical-align: middle;
@@ -159,6 +162,7 @@ table, thead, tbody, td, tr, th {
 .window_content .content_explorer .file_icon {
     vertical-align: middle;
     position: relative;
+    margin-left: 7px;
     margin-right: 14px;
     top: 1px;
 }
