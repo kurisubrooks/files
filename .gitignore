@@ -3,3 +3,4 @@ logs
 node_modules
 .npm
 .DS_Store
+files-*
