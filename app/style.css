@@ -103,11 +103,15 @@ table, thead, tbody, td, tr, th {
     padding: 8px 12px 6px;
 }
 
-.window_menubar .menubar_buttons li:hover {
+.window_menubar .menubar_buttons li.path {
+    text-transform: none;
+}
+
+.window_menubar .menubar_buttons li:hover:not(.path) {
     background: rgba(0, 0, 0, 0.1);
 }
 
-.window_menubar .menubar_buttons li:active {
+.window_menubar .menubar_buttons li:active:not(.path) {
     background: rgba(0, 0, 0, 0.2);
 }
 
