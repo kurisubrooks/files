@@ -3,10 +3,17 @@ const { remote, shell } = require("electron")
 const moment = require("moment")
 const path = require("path")
 const fs = require("fs")
-const os = require("os")
+const os = require("os").platform()
+const _ = require("lodash")
 
 let lastDir = null
 let currentDir = null
+let config = require("./config.json")
+
+let platform =
+    os === "darwin" ? "mac" :
+    os === "win32"  ? "win" :
+    os === "linux"  ? "linux" : "unknown"
 
 let fileType = function(filename) {
     let types = require("./modules/files.json")
@@ -21,7 +28,16 @@ let fileType = function(filename) {
 }
 
 let isHidden = function(path) {
-    return (/(^|\/)\.[^\/\.]/g).test(path)
+    let blacklist = require("./modules/hidden.json")
+    let check = (/(^|\/)\.[^\/\.]/g).test(path)
+
+    if (blacklist[platform].indexOf(path) >= 0) {
+        return true
+    } else if (check) {
+        return true
+    } else {
+        return false
+    }
 }
 
 let normalizeSize = function(bytes) {
@@ -48,7 +64,7 @@ let changeDir = function(dirname) {
         let $parent = $("#files")
         let $page = $("<tbody></tbody>")
 
-        files.forEach(function(files) {
+        _.forEach(files.sort(), (files) => {
             let name = files
             let file = dirname + "/" + files
             let home = os.platform === "win32" ? process.env.USERPROFILE : process.env.HOME
@@ -89,6 +105,8 @@ let changeDir = function(dirname) {
                         return "file"
                     }
                 }
+
+                if (!config.showHiddenFiles && invisible) return
 
                 let $contain = $("<tr></tr>")
                 let $name = $("<td></td>")
@@ -144,6 +162,10 @@ let setSidebar = function(object) {
 }
 
 $(function() {
+    $("#control_updir").on("click", (e) => {
+
+    })
+
     $("#window_minimize").on("click", (e) => {
         let window = remote.getCurrentWindow()
         let minimize = window.minimize()
@@ -159,9 +181,9 @@ $(function() {
         let close = window.close()
     })
 
-    if (os.platform() === "win32") {
+    if (os === "win32") {
         changeDir(process.env.USERPROFILE)
-    } else if (os.platform() === "darwin") {
+    } else if (os === "darwin") {
         changeDir(process.env.HOME)
     } else {
         changeDir(process.env.PWD)
