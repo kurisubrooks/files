@@ -56,7 +56,6 @@ let upDir = function(dirname) {
 }
 
 let changeDir = function(dirname) {
-    console.log(dirname)
     currentDir = dirname
     //lastDir = !lastDir ? dirname : ""
 
