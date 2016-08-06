@@ -81,6 +81,23 @@ table, thead, tbody, td, tr, th {
     color: #FFFFFF;
 }
 
+.window_menubar .dropdown ul {
+    display: none;
+}
+
+/*
+.window_menubar .dropdown ul {
+    position: absolute;
+    z-index: 10;
+    background: white;
+    top: 80px;
+    right: 16px;
+}
+
+.window_menubar .dropdown.active ul {
+    display: block;
+}
+*/
 .window_menubar .menubar_align_left li {
     margin-right: 8px;
 }
@@ -104,7 +121,10 @@ table, thead, tbody, td, tr, th {
 }
 
 .window_menubar .menubar_buttons li.path {
+    position: relative;
+    top: -1px;
     text-transform: none;
+    cursor: default;
 }
 
 .window_menubar .menubar_buttons li:hover:not(.path) {
