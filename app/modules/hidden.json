@@ -1,0 +1,19 @@
+{
+    "mac": [
+        ".DS_Store",
+        ".localized",
+        ".Trash",
+        ".Trashes",
+        ".Spotlight-V100",
+        "$RECYCLE.BIN",
+        "System Volume Information"
+    ],
+    "win": [
+        "NTUser.dat",
+        "Thumbs.db",
+        "desktop.ini"
+    ],
+    "linux": [
+
+    ]
+}
