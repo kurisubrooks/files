@@ -5,6 +5,9 @@ const path = require("path")
 const fs = require("fs")
 const os = require("os")
 
+let lastDir = null
+let currentDir = null
+
 let fileType = function(filename) {
     let types = require("./modules/files.json")
     let split = filename.toLowerCase().split(".")
@@ -32,6 +35,13 @@ let openFile = function(filedir) {
 }
 
 let changeDir = function(dirname) {
+    currentDir = dirname
+    if (!lastDir) {
+        lastDir = dirname
+    } else {
+
+    }
+
     fs.readdir(dirname, (error, files) => {
         if (error) throw error
 
@@ -44,18 +54,40 @@ let changeDir = function(dirname) {
             let home = os.platform === "win32" ? process.env.USERPROFILE : process.env.HOME
 
             fs.stat(file, function(err, stats) {
-                let type = stats.isFile() ? "file" : stats.isDirectory() ? "folder" : undefined
+                let type = function() {
+                    if (stats.isFile()) {
+                        return "file"
+                    } else if (stats.isDirectory()) {
+                        let split = name.toLowerCase().split(".")
+                        let last = split[split.length - 1]
+
+                        if (last === "app") {
+                            return "file"
+                        } else {
+                            return "folder"
+                        }
+                    } else {
+                        return undefined
+                    }
+                }
+
                 let location = file
-                let size = type == "folder" ? "—" : normalizeSize(stats.size)
+                let size = type() == "folder" ? "—" : normalizeSize(stats.size)
                 let modified = moment(stats.mtime).format("MMM D, YYYY")
                 let invisible = isHidden(name)
-                let check = type == "file" ? fileType(name) : null
+                let check = type() == "file" ? fileType(name) : null
                 let icon = function() {
-                    if (type === "file" && !invisible) return `${fileType(name)}`
-                    else if (type === "folder") {
-                        if (dirname === home && name === "Google Drive") return "folder_google_drive"
-                        else return "folder"
-                    } else return "file"
+                    if (type() === "file" && !invisible) {
+                        return `${fileType(name)}`
+                    } else if (type() === "folder") {
+                        if (dirname === home && name === "Google Drive") {
+                            return "folder_google_drive"
+                        } else {
+                            return "folder"
+                        }
+                    } else {
+                        return "file"
+                    }
                 }
 
                 let $contain = $("<tr></tr>")
@@ -101,8 +133,14 @@ let changeDir = function(dirname) {
     })
 }
 
-let setSidebar = function() {
+let setSidebar = function(object) {
+    let icon = "home"
+    let title = "Home"
 
+    let $container = $("<li></li>")
+    let $template = $(`<span class="file_icon"><img src="res/${icon}.svg"></span>${title}`)
+
+    $container.append($template)
 }
 
 $(function() {
