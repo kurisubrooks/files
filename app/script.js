@@ -50,17 +50,20 @@ let openFile = function(filedir) {
     shell.openItem(filedir)
 }
 
-let changeDir = function(dirname) {
-    currentDir = dirname
-    if (!lastDir) {
-        lastDir = dirname
-    } else {
+let upDir = function(dirname) {
+    if (dirname === path.join(dirname, "../")) return
+    changeDir(path.join(dirname, "../"))
+}
 
-    }
+let changeDir = function(dirname) {
+    console.log(dirname)
+    currentDir = dirname
+    //lastDir = !lastDir ? dirname : ""
 
     fs.readdir(dirname, (error, files) => {
         if (error) throw error
 
+        let $title = $("#path").text(dirname)
         let $parent = $("#files")
         let $page = $("<tbody></tbody>")
 
@@ -163,7 +166,7 @@ let setSidebar = function(object) {
 
 $(function() {
     $("#control_updir").on("click", (e) => {
-
+        upDir(currentDir)
     })
 
     $("#window_minimize").on("click", (e) => {
@@ -181,13 +184,9 @@ $(function() {
         let close = window.close()
     })
 
-    if (os === "win32") {
-        changeDir(process.env.USERPROFILE)
-    } else if (os === "darwin") {
-        changeDir(process.env.HOME)
-    } else {
-        changeDir(process.env.PWD)
-    }
+    if      (platform === "win") changeDir(process.env.USERPROFILE)
+    else if (platform === "mac") changeDir(process.env.HOME)
+    else                         changeDir(process.env.PWD)
 
     setSidebar()
 })
