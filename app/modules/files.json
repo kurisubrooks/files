@@ -52,6 +52,7 @@
     "pdf":      "image",
     "ps":       "image",
     "pub":      "image",
+    "sketch":   "image",
 
     "csv":      "sheet",
     "gsheet":   "sheet",
