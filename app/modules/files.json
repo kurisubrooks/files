@@ -34,9 +34,6 @@
 
     "ass":      "text",
     "cfg":      "text",
-    "doc":      "text",
-    "docx":     "text",
-    "dot":      "text",
     "eps":      "text",
     "gdoc":     "text",
     "ifo":      "text",
@@ -49,21 +46,25 @@
     "fla":      "image",
     "gdraw":    "image",
     "icns":     "image",
-    "pdf":      "image",
     "ps":       "image",
     "pub":      "image",
     "sketch":   "image",
 
+    "pdf":      "pdf",
+
     "csv":      "sheet",
     "gsheet":   "sheet",
     "numbers":  "sheet",
-    "xls":      "sheet",
-    "xlsx":     "sheet",
 
+    "xls":      "excel",
+    "xlsx":     "excel",
     "pps":      "powerpoint",
     "ppsx":     "powerpoint",
     "ppt":      "powerpoint",
     "pptx":     "powerpoint",
+    "doc":      "word",
+    "docx":     "word",
+    "dot":      "word",
 
     "3ds":      "image",
     "ai":       "image",
